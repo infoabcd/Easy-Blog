@@ -25,7 +25,7 @@
 
 1.第一次运行：`pip3 install -r requirements.txt` 安装所需的库
 
-2.关于数据库：instance文件夹存放了一个SQLite数据库，这个数据库由model.py这个文件创建，你完全可以删掉这个测试用的数据库，只要代码重新运行 `python3 app.py` ，就会自动创建新的SQLite数据库(如果instance文件夹没有数据库)
+2.关于数据库：instance文件夹存放了一个SQLite数据库，这个数据库由 `model.py` 这个文件创建，你完全可以删掉这个测试用的数据库，只要代码重新运行 `python3 app.py` ，就会自动创建新的SQLite数据库(如果instance文件夹没有数据库)
 
 3.关于app.py：你可以在 `app.py` 这个文件中找到一些定义，比如说 *第七行-登陆信息加密key*， *第八行，后台管理地址*， *第十行，数据库的名字(无则自动在instance文件夹创建)*
 
