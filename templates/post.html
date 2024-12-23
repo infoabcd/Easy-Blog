@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发布文章</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='postStyle.css') }}">
+</head>
+<body>
+    <h1 class="text-center mb-4">发布文章</h1>
+    <!-- 该路由支持GET与POST，GET为编辑，POST为发布，所以不需要通过 action 属性指定传入哪个路由API -->
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">标题:</label>
+            <input type="text" id="title" name="title" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">内容:</label>
+            <textarea id="content" name="content" rows="5" class="form-control" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="images" class="form-label">上传图片:</label>
+            <input type="file" id="images" name="images" accept="image/*" class="form-control" multiple>
+        </div>
+        <button type="submit" class="btn btn-primary">发布</button>
+    </form>
+</body>
+</html>

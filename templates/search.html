@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% include 'nav.html' %}
+<div class="container mt-4">
+    <h2 class="search">搜索到下面内容</h2>
+        {% if results %}
+            <ul class="list-group">
+                {% for result in results %}
+                    <li class="list-group-item">
+                        <a href="/article/{{result.id}}"><h5>{{ result.title }}</h5></a>
+                        <p>{{ result.content[:100] }}...</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-muted">未找到相关结果。</p>
+        {% endif %}
+    </div>
+{% include 'footer.html' %}
+</body>
+</html>

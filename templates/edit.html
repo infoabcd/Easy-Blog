@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑文章</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>编辑文章</h2>
+    <!-- 该路由支持GET与POST，GET为编辑，POST为修改发布，所以不需要通过 action 属性指定传入哪个路由API -->
+    <form method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">标题</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ article.title }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">内容</label>
+            <textarea class="form-control" id="content" name="content" rows="5" required>{{ article.content }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">保存更改</button>
+        <a href="{{ url_for('articles', content_id=article.id) }}" class="btn btn-secondary">取消</a>
+    </form>
+    <!-- url_for 函数的参数应该是视图函数的名称，而不是 URL 路径. 如果是 URL 路径【article】将会报错 前面定义【/article】时，使用的名称为，路由为【/article】，函数名为【articles】-->
+</div>
+</body>
+</html>

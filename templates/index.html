@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展示墙</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% include 'nav.html' %}
+    <div class="container">
+        <h1 class="text-center my-4">文章</h1>
+        <div class="row">
+            {% for item in items %}
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card">
+                    <a href="article/{{ item.id }}">
+                        {% if item.images %}
+                        <!-- 展出多张图 -->
+                        <!-- {% for image_path in item.images.split(',') %}
+                            <img src="{{ image_path }}" class="card-img-top mb-2" alt="IMAGES">
+                        {% endfor %} -->
+                        <!-- 展出单张-第一张图 -->
+                            <img src="{{ item.images.split(',')[0] }}" class="card-img-top" alt="IMAGES">
+                        {% else %}
+                            <img src="https://via.placeholder.com/300x400" class="card-img-top" alt="IMAGES">
+                        {% endif %}
+                            <div class="card-body" style="color: black;">
+                            <h5 class="card-title text-center">{{ item.title }}</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% include 'footer.html' %}
+</body>
+</html>

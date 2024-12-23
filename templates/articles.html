@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% include 'nav.html' %}
+<div class="content">
+    <h2>{{ article.title }}</h2>
+    <p>{{ posttime[0] }}</p>
+    <p>{{ article.content }}</p>
+    {% if article.images %}
+        {% for image in article.images.split(',') %}
+            <img class="content_img" src="{{ '/'+image }}" alt="图片" />
+        {% endfor %}
+    {% endif %}
+</div>
+{% include 'footer.html' %}
+</body>
+</html>
