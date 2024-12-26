@@ -14,7 +14,7 @@ class User(db.Model):
 
     @staticmethod
     def create_user(username, password):
-        hashed_password = generate_password_hash(password)
+        hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
         user = User(username=username, password=hashed_password)
         db.session.add(user)
         db.session.commit()
